@@ -1,7 +1,6 @@
-global DataBase
+global DataBase, notes
 DB = [
-    {"name": "primeira musica"},
-    {"name": "segunda musica"},
-    {"name": "terceira musica"},
-    {"name": "quarta musica"},
+    
 ]
+
+notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']

@@ -1,5 +1,6 @@
 import DataBase
 import os
+import create
 
 index = 0
 
@@ -8,19 +9,19 @@ def read():
     ind = 1
     for music in DataBase.DB:
         name = music["name"]
-        print(f"[{ind}] - {name}")
+        tone = music["tone"]
+        if(music["scale"] == 1):
+            scale = "major"
+        else:
+            scale = "minor"
+        print(f"[{ind}] - {name}: {tone} {scale}")
         ind += 1
-
-def create(ind):
-    os.system('cls')
-    name = input("Digite o nome da musica que você deseja cadastrar: ")
-    DataBase.DB.insert(ind, {"name": name})
 
 def update():
     read()
     op = int(input("Digite qual musica voce deseja alterar: ")) - 1
     DataBase.DB.pop(op)
-    create(op)
+    create.new(op)
 
 def delete():
     read()
@@ -41,7 +42,7 @@ while(op!=0):
         os.system('pause')
     elif(op==2):
         index = len(DataBase.DB)
-        create(index)
+        create.new(index)
     elif(op==3):
         update()
     elif(op==4):
